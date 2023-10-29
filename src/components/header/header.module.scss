@@ -1,0 +1,29 @@
+.header {
+  padding: 30px 20px !important;
+  font-family: var(--rubik);
+  background: linear-gradient(
+    180deg,
+    rgba(11, 9, 9, 0.8),
+    rgba(0, 0, 0, 0)
+  ) !important;
+  color: $color_white;
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icon {
+    font-size: $font_header-small;
+
+    @include mobile {
+      font-size: $font-header_mobile;
+    }
+
+    @include desktop {
+      font-size: $font_header_desktop;
+    }
+    @include desktop_large {
+      font-size: $font_header;
+    }
+  }
+}

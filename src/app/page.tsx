@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import styles from "./home.module.scss";
 export default function Home() {
-  return <main></main>;
+  return <main className="container w-full h-[100vh]"></main>;
 }

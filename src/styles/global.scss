@@ -1,0 +1,148 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+p {
+  font-family: var(--open-sans);
+}
+p,
+ul,
+li {
+  font-size: $font_text;
+  @include mobile {
+    font-size: $font_text_mobile;
+  }
+
+  @include desktop {
+    font-size: $font_text_large;
+  }
+}
+body {
+  background-color: $color_dark;
+}
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+
+  text-size-adjust: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--rubik);
+}
+
+h1 {
+  font-size: $font_header-small;
+
+  @include mobile {
+    font-size: $font-header_mobile;
+  }
+
+  @include desktop {
+    font-size: $font_header_desktop;
+  }
+  @include desktop_large {
+    font-size: $font_header;
+  }
+}
+h2 {
+  font-size: $font_subheader;
+}
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
