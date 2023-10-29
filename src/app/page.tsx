@@ -1,12 +1,4 @@
 import styles from "./home.module.scss";
 export default function Home() {
-  return (
-    <main className="container">
-      <div className="row">
-        <p>Hello</p>
-      </div>
-      <h2>Lorem ipsum dolor sit amet.</h2>
-      <div className={styles.test}></div>
-    </main>
-  );
+  return <main className="container w-full h-[100vh]"></main>;
 }

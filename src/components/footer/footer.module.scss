@@ -1,0 +1,14 @@
+.footer {
+  padding: 30px 20px !important;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0),
+    rgba(114, 113, 113, 0.8)
+  ) !important;
+  font-family: var(--rubik);
+  color: $color_white;
+  .heart {
+    color: #e34040;
+  }
+}

@@ -1,6 +1,8 @@
+import Header from "@/components/header";
 import "../styles/styles.scss";
 import type { Metadata } from "next";
 import { Rubik, Open_Sans } from "next/font/google";
+import Footer from "@/components/footer";
 const rubik = Rubik({
   subsets: ["latin"],
   variable: "--rubik",
@@ -27,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${open_sans.variable} ${rubik.variable}`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

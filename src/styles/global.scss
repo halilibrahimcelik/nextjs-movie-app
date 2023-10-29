@@ -5,7 +5,21 @@
 }
 p {
   font-family: var(--open-sans);
-  color: red;
+}
+p,
+ul,
+li {
+  font-size: $font_text;
+  @include mobile {
+    font-size: $font_text_mobile;
+  }
+
+  @include desktop {
+    font-size: $font_text_large;
+  }
+}
+body {
+  background-color: $color_dark;
 }
 html,
 body,
@@ -77,7 +91,18 @@ h6 {
 }
 
 h1 {
-  font-size: $font_header;
+  font-size: $font_header-small;
+
+  @include mobile {
+    font-size: $font-header_mobile;
+  }
+
+  @include desktop {
+    font-size: $font_header_desktop;
+  }
+  @include desktop_large {
+    font-size: $font_header;
+  }
 }
 h2 {
   font-size: $font_subheader;
