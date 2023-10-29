@@ -76,6 +76,12 @@ h6 {
   font-family: var(--rubik);
 }
 
+h1 {
+  font-size: $font_header;
+}
+h2 {
+  font-size: $font_subheader;
+}
 footer,
 header,
 nav,

@@ -1,5 +1,10 @@
-@import "../styles/variables";
-@import "../styles/grid.scss";
-.text {
-  color: $primary-color !important;
+// @import "../styles/variables";
+.test {
+  background: red;
+  width: 100%;
+  height: 400px;
+  font-size: $font_text;
+  @include laptop {
+    background: blue;
+  }
 }

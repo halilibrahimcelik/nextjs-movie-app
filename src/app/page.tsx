@@ -1,3 +1,4 @@
+import styles from "./home.module.scss";
 export default function Home() {
   return (
     <main className="container">
@@ -5,6 +6,7 @@ export default function Home() {
         <p>Hello</p>
       </div>
       <h2>Lorem ipsum dolor sit amet.</h2>
+      <div className={styles.test}></div>
     </main>
   );
 }
