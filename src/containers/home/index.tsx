@@ -5,9 +5,13 @@ import Genres from "@/mock/genres.json";
 import styles from "./home.module.scss";
 import Categories from "@/components/categories";
 import MoviesSection from "@/components/movieSection";
-type Props = {};
+type Props = {
+  topRated: [];
+  popularMovies: [];
+  genres: [];
+};
 
-const HomeContainer = (props: Props) => {
+const HomeContainer = ({ topRated, popularMovies, genres }: Props) => {
   return (
     <section className="container">
       <FeaturedMovie
@@ -20,16 +24,16 @@ const HomeContainer = (props: Props) => {
           }
         }
       />
-      <Categories styles={styles} categories={Genres.genres} />
+      <Categories styles={styles} categories={genres} />
       <MoviesSection
         styles={styles}
-        title="Popular Films"
-        movies={Movies.results.slice(0, 6)}
+        title="Top Rated"
+        movies={topRated?.slice(0, 6)}
       />
       <MoviesSection
         styles={styles}
-        title="Your Favorites"
-        movies={Movies.results.slice(6, 13)}
+        title="Popular Movies"
+        movies={popularMovies.slice(0, 6)}
       />
     </section>
   );
