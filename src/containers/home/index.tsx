@@ -8,10 +8,10 @@ type Props = {};
 
 const HomeContainer = (props: Props) => {
   return (
-    <div className="container">
+    <section className="container">
       <FeaturedMovie styles={styles} movies={Movies.results[0]} />
       <Categories styles={styles} categories={Genres.genres} />
-    </div>
+    </section>
   );
 };
 export default HomeContainer;

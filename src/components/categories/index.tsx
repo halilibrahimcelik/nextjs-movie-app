@@ -52,16 +52,15 @@ function Categories({ styles, categories }: Props) {
             <Button className={styles.category}>{category.name}</Button>
           </Link>
         ))}
-
-        <Pagination
-          onChange={(e, value) => setDisplayedMovies(value)}
-          className={styles.pagination}
-          count={Math.floor(categories.length / 4)}
-          variant="outlined"
-          color="primary"
-          siblingCount={0}
-        />
       </div>
+      <Pagination
+        onChange={(e, value) => setDisplayedMovies(value)}
+        className={styles.pagination}
+        count={Math.floor(categories.length / 4)}
+        variant="outlined"
+        color="primary"
+        siblingCount={0}
+      />
     </ThemeProvider>
   );
 }

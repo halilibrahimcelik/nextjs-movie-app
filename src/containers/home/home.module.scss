@@ -27,10 +27,8 @@
 }
 .moviePoster {
   img {
-    height: auto !important;
     z-index: -2;
     object-fit: cover;
-    max-height: 100vh;
   }
 }
 .overlayPoster {
@@ -66,22 +64,30 @@
   display: flex;
   padding: 40px 0;
   justify-content: center;
+  gap: 20px;
+  @include laptop {
+    justify-content: space-between;
+    gap: 5px;
+  }
+
   flex-wrap: wrap;
-  gap: 10px;
+
   .category {
     color: $color-white;
     background-color: rgba(0, 0, 0, 0.9);
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    @include laptop {
+      font-size: 1.4rem;
+    }
   }
 }
 
 .pagination {
-  color: $color-white;
-  li {
-    color: #fff !important;
-  }
+  display: flex;
+  justify-content: center;
 }

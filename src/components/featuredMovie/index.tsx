@@ -15,7 +15,7 @@ type Props = {
 
 const FeaturedMovie = ({ movies, styles, isLong = true }: Props) => {
   return (
-    <>
+    <div className="py-20">
       <div className={` ${styles.movieWrapper}`}>
         <h1 className={styles.header}>{movies.title} </h1>
         <p
@@ -43,7 +43,7 @@ const FeaturedMovie = ({ movies, styles, isLong = true }: Props) => {
           fill
         />
       </div>
-    </>
+    </div>
   );
 };
 
