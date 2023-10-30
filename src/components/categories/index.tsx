@@ -11,7 +11,6 @@ type Props = {
 };
 
 function Categories({ styles, categories }: Props) {
-  console.log(categories);
   const [displayedMovies, setDisplayedMovies] = useState(1);
   const itemsPerPage = 5;
   const startIndex = (displayedMovies - 1) * itemsPerPage;
