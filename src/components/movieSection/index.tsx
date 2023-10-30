@@ -15,7 +15,6 @@ type Props = {
 };
 
 function MoviesSection({ title, movies, styles }: Props) {
-  console.log(movies[0]);
   return (
     <section className="py-10">
       <div className="container ">
