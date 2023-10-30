@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Button from "@mui/material/Button";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, styled, Box } from "@mui/material";
@@ -12,6 +12,7 @@ type Props = {
 
 function Categories({ styles, categories }: Props) {
   const [displayedMovies, setDisplayedMovies] = useState(1);
+  const [isClient, setIsClient] = useState(false);
   const itemsPerPage = 5;
   const startIndex = (displayedMovies - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -42,16 +43,24 @@ function Categories({ styles, categories }: Props) {
       }),
     []
   );
-  if (categories.length === 0) return <div>loading...</div>;
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <div className={styles.categories}>
+      <ul className={styles.categories}>
         {displayedCategories.map((category) => (
-          <Link key={category.id} href={`/${category.id}`}>
-            <Button className={styles.category}>{category.name}</Button>
-          </Link>
+          <li key={category.id}>
+            <Button className={styles.category}>
+              <Link href={`/${category.id}`}>{category.name}</Link>
+            </Button>
+          </li>
         ))}
-      </div>
+      </ul>
       <Pagination
         onChange={(e, value) => setDisplayedMovies(value)}
         className={styles.pagination}
