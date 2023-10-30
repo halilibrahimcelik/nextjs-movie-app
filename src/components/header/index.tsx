@@ -8,7 +8,7 @@ function Header({}: Props) {
   return (
     <header className={styles.header}>
       <nav>
-        <Link href="/" className="flex">
+        <Link href="/" className="flex items-center">
           <span className={styles.icon}>
             <BiSolidMoviePlay />
           </span>

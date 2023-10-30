@@ -1,4 +1,4 @@
-import styles from "./home.module.scss";
+import HomeContainer from "@/containers/home";
 export default function Home() {
-  return <main className="container w-full h-[100vh]"></main>;
+  return <HomeContainer />;
 }

@@ -23,3 +23,16 @@
     @content;
   }
 }
+
+@mixin anchorStyle() {
+  opacity: 1;
+  transition: all 0.4s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.6;
+    text-decoration: underline;
+  }
+}
