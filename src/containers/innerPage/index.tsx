@@ -1,7 +1,6 @@
 import FeaturedMovie from "@/components/featuredMovie";
 import React from "react";
 import styles from "../home/home.module.scss";
-import Movies from "@/mock/movies.json";
 import { notFound } from "next/navigation";
 type Movie = {
   adult: boolean;
