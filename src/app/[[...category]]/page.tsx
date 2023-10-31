@@ -6,14 +6,14 @@ import {
   getTopRatedMovies,
   getTVSeries,
 } from "@/services/movieServices";
+
 type Props = {
   params: {
     category: string;
   };
-  [key: string]: any;
+  searchParams: { [key: string]: string | string[] | undefined };
 };
-export default async function Home({ params, ...props }: Props) {
-  const { searchParams } = props;
+export default async function Home({ params, searchParams }: Props) {
   let selectedCategory: { title: string; movies: [] } = {
     title: "",
     movies: [],

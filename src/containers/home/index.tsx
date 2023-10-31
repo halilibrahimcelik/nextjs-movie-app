@@ -9,7 +9,7 @@ type Props = {
   genres: [];
   selectedCategory: { movies: []; title: string };
   tvSeries: [];
-  searchParams: { [key: string]: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 const HomeContainer = ({
