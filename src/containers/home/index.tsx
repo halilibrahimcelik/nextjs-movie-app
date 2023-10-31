@@ -26,7 +26,6 @@ const HomeContainer = ({
     genres.length === 0
   )
     return null;
-  console.log(searchParams.series);
 
   return (
     <section className="container">
@@ -50,7 +49,7 @@ const HomeContainer = ({
       )}
 
       <Categories styles={styles} categories={genres} />
-      {selectedCategory.movies?.length > 0 && searchParams.series === "true" ? (
+      {selectedCategory.movies?.length > 0 && searchParams.series !== "true" ? (
         <MoviesSection
           title={selectedCategory.title}
           styles={styles}
