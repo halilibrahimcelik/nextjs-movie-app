@@ -22,12 +22,16 @@ type Movie = {
 
 type Props = {
   id: string | number | string[] | undefined;
+  searchParams: { [key: string]: string };
 };
 
 const API_URL = `https://api.themoviedb.org/3`;
-const getMovie = async (movieId: string | number | any) => {
+const getMovie = async (
+  movieId: string | number | any,
+  movieType = "movie"
+) => {
   const res = await fetch(
-    `${API_URL}/movie/${movieId}?api_key=${process.env.API_KEY}`
+    `${API_URL}/${movieType}/${movieId}?api_key=${process.env.API_KEY}`
   );
   if (res.status >= 400) throw new Error("Error fetching data");
 
@@ -35,9 +39,9 @@ const getMovie = async (movieId: string | number | any) => {
   return data;
 };
 
-const InnerMovieContainer = async ({ id }: Props) => {
-  const movieDetail = await getMovie(id);
-  console.log(movieDetail);
+const InnerMovieContainer = async ({ id, searchParams }: Props) => {
+  const { mediaType } = searchParams;
+  const movieDetail = await getMovie(id, mediaType);
 
   if (!movieDetail) {
     notFound();

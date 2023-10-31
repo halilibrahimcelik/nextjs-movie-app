@@ -1,4 +1,12 @@
 const API_URL = `https://api.themoviedb.org/3`;
+export const getTVSeries = async () => {
+  const res = await fetch(
+    `${API_URL}/trending/tv/day?api_key=${process.env.API_KEY}`
+  );
+  if (res.status >= 400) throw new Error("Error fetching data");
+  const { results } = await res.json();
+  return results;
+};
 export const getCategories = async () => {
   const res = await fetch(
     `${API_URL}/genre/movie/list?api_key=${process.env.API_KEY}&page=1`

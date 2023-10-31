@@ -8,6 +8,8 @@ type Props = {
   popularMovies: [];
   genres: [];
   selectedCategory: { movies: []; title: string };
+  tvSeries: [];
+  searchParams: { [key: string]: string };
 };
 
 const HomeContainer = ({
@@ -15,41 +17,53 @@ const HomeContainer = ({
   popularMovies,
   genres,
   selectedCategory,
+  tvSeries,
+  searchParams,
 }: Props) => {
-  console.log(topRated.length);
   if (
     topRated.length === 0 ||
     popularMovies.length === 0 ||
     genres.length === 0
   )
     return null;
+  console.log(searchParams.series);
+
   return (
     <section className="container">
-      <FeaturedMovie
-        styles={styles}
-        movies={
-          selectedCategory.movies?.length > 0
-            ? selectedCategory.movies?.[0]
-            : topRated?.[0]
-        }
-      />
+      {searchParams.series === "true" ? (
+        <>
+          {" "}
+          <FeaturedMovie
+            styles={styles}
+            movies={tvSeries?.length > 0 ? tvSeries?.[0] : topRated?.[0]}
+          />
+        </>
+      ) : (
+        <FeaturedMovie
+          styles={styles}
+          movies={
+            selectedCategory.movies?.length > 0
+              ? selectedCategory.movies?.[0]
+              : topRated?.[0]
+          }
+        />
+      )}
+
       <Categories styles={styles} categories={genres} />
-      {selectedCategory.movies?.length > 0 && (
+      {selectedCategory.movies?.length > 0 && searchParams.series === "true" ? (
         <MoviesSection
           title={selectedCategory.title}
           styles={styles}
-          movies={selectedCategory.movies?.slice(0, 8)}
+          movies={selectedCategory.movies}
         />
+      ) : (
+        <MoviesSection title={"TV Series"} styles={styles} movies={tvSeries} />
       )}
-      <MoviesSection
-        styles={styles}
-        title="Top Rated"
-        movies={topRated?.slice(0, 8)}
-      />
+      <MoviesSection styles={styles} title="Top Rated" movies={topRated} />
       <MoviesSection
         styles={styles}
         title="Popular Movies"
-        movies={popularMovies.slice(0, 8)}
+        movies={popularMovies}
       />
     </section>
   );

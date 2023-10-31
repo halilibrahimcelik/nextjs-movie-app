@@ -12,7 +12,7 @@ const InnerPage = async ({ params, searchParams }: Props) => {
   if (searchParams.error === "true") {
     throw new Error("Error occured");
   }
-  return <InnerMovieContainer id={params.id} />;
+  return <InnerMovieContainer id={params.id} searchParams={searchParams} />;
 };
 
 export default InnerPage;

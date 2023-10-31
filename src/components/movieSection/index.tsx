@@ -3,8 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y, Pagination } from "swiper/modules";
-import { useSwiper } from "swiper/react";
+import { Navigation, A11y, Pagination, Autoplay } from "swiper/modules";
 
 type Props = {
   title: string;
@@ -28,7 +27,7 @@ function MoviesSection({ title, movies, styles }: Props) {
           <Swiper
             style={{ padding: "60px 0px !important" }}
             slidesPerView={1}
-            modules={[Navigation, A11y, Pagination]}
+            modules={[Navigation, A11y, Pagination, Autoplay]}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -47,13 +46,21 @@ function MoviesSection({ title, movies, styles }: Props) {
                 spaceBetween: 50,
               },
             }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
             spaceBetween={20}
             pagination={{ clickable: true }}
           >
             {movies.map((movie) => (
               <SwiperSlide className={styles.swiperSlide} key={movie.id}>
                 <li className={styles.movieCard}>
-                  <Link href={`/movie/${movie.id}`}>
+                  <Link
+                    href={`/movie/${movie.id}?mediaType=${
+                      movie?.media_type ? movie?.media_type : "movie"
+                    }`}
+                  >
                     <Image
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       alt={movie.title}
