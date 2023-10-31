@@ -99,6 +99,14 @@
     justify-content: start;
   }
   gap: 20px;
+  .swiperSlide {
+    display: flex !important;
+    justify-content: center !important;
+    @include laptop {
+      justify-content: inherit !important;
+      display: inherit !important;
+    }
+  }
 }
 .movieCard {
   width: 200px;

@@ -3,6 +3,9 @@ import "../styles/styles.scss";
 import type { Metadata } from "next";
 import { Rubik, Open_Sans } from "next/font/google";
 import Footer from "@/components/footer";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const rubik = Rubik({
   subsets: ["latin"],
   variable: "--rubik",

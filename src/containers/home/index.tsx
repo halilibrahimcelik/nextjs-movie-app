@@ -16,6 +16,7 @@ const HomeContainer = ({
   genres,
   selectedCategory,
 }: Props) => {
+  console.log(topRated.length);
   if (
     topRated.length === 0 ||
     popularMovies.length === 0 ||
@@ -37,18 +38,18 @@ const HomeContainer = ({
         <MoviesSection
           title={selectedCategory.title}
           styles={styles}
-          movies={selectedCategory.movies?.slice(0, 6)}
+          movies={selectedCategory.movies?.slice(0, 8)}
         />
       )}
       <MoviesSection
         styles={styles}
         title="Top Rated"
-        movies={topRated?.slice(0, 6)}
+        movies={topRated?.slice(0, 8)}
       />
       <MoviesSection
         styles={styles}
         title="Popular Movies"
-        movies={popularMovies.slice(0, 6)}
+        movies={popularMovies.slice(0, 8)}
       />
     </section>
   );
