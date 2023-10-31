@@ -34,7 +34,9 @@ const HomeContainer = ({
           {" "}
           <FeaturedMovie
             styles={styles}
-            movies={tvSeries?.length > 0 ? tvSeries?.[0] : topRated?.[0]}
+            movies={
+              tvSeries?.length > 0 ? (tvSeries as any)[0] : (topRated as any)[0]
+            }
           />
         </>
       ) : (
@@ -42,8 +44,8 @@ const HomeContainer = ({
           styles={styles}
           movies={
             selectedCategory.movies?.length > 0
-              ? selectedCategory.movies?.[0]
-              : topRated?.[0]
+              ? (selectedCategory.movies as any)?.[0]
+              : (topRated as any)[0]
           }
         />
       )}
