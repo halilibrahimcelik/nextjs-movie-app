@@ -22,14 +22,28 @@ type Movie = {
 
 type Props = {
   id: string | number | string[] | undefined;
+  searchParams: { [key: string]: string };
 };
 
-const InnerMovieContainer = ({ id }: Props) => {
-  const movie: Movie | undefined = Movies.results.find(
-    (movie) => movie.id === Number(id)
+const API_URL = `https://api.themoviedb.org/3`;
+const getMovie = async (
+  movieId: string | number | any,
+  movieType = "movie"
+) => {
+  const res = await fetch(
+    `${API_URL}/${movieType}/${movieId}?api_key=${process.env.API_KEY}`
   );
+  if (res.status >= 400) throw new Error("Error fetching data");
 
-  if (!movie) {
+  const data = await res.json();
+  return data;
+};
+
+const InnerMovieContainer = async ({ id, searchParams }: Props) => {
+  const { mediaType } = searchParams;
+  const movieDetail = await getMovie(id, mediaType);
+
+  if (!movieDetail) {
     notFound();
   }
   return (
@@ -38,10 +52,10 @@ const InnerMovieContainer = ({ id }: Props) => {
         styles={styles}
         isLong={true}
         movies={
-          movie && {
-            ...movie,
-            backdrop_path: movie.backdrop_path || "",
-            poster_path: movie.poster_path || "",
+          movieDetail && {
+            ...movieDetail,
+            backdrop_path: movieDetail.backdrop_path || "",
+            poster_path: movieDetail.poster_path || "",
           }
         }
       />

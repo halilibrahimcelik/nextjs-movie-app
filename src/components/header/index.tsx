@@ -18,7 +18,7 @@ function Header({}: Props) {
 
         <ul className="flex justify-center items-center gap-2">
           <li>
-            <Link href="/movies">Movies</Link>
+            <Link href="/?series=true">Movies</Link>
           </li>
           <li>
             <Link href="/series">Series</Link>

@@ -147,3 +147,13 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background: #adadadaa !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: $color-white !important;
+  width: 15px !important;
+  height: 15px !important;
+}

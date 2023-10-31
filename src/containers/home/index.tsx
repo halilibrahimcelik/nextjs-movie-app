@@ -1,35 +1,68 @@
 import FeaturedMovie from "@/components/featuredMovie";
 import React from "react";
-import Movies from "@/mock/movies.json";
-import Genres from "@/mock/genres.json";
 import styles from "./home.module.scss";
 import Categories from "@/components/categories";
 import MoviesSection from "@/components/movieSection";
-type Props = {};
+type Props = {
+  topRated: [];
+  popularMovies: [];
+  genres: [];
+  selectedCategory: { movies: []; title: string };
+  tvSeries: [];
+  searchParams: { [key: string]: string };
+};
 
-const HomeContainer = (props: Props) => {
+const HomeContainer = ({
+  topRated,
+  popularMovies,
+  genres,
+  selectedCategory,
+  tvSeries,
+  searchParams,
+}: Props) => {
+  if (
+    topRated.length === 0 ||
+    popularMovies.length === 0 ||
+    genres.length === 0
+  )
+    return null;
+
   return (
     <section className="container">
-      <FeaturedMovie
-        styles={styles}
-        movies={
-          Movies.results[0] && {
-            ...Movies.results[0],
-            backdrop_path: Movies.results[0].backdrop_path || "",
-            poster_path: Movies.results[0].poster_path || "",
+      {searchParams.series === "true" ? (
+        <>
+          {" "}
+          <FeaturedMovie
+            styles={styles}
+            movies={tvSeries?.length > 0 ? tvSeries?.[0] : topRated?.[0]}
+          />
+        </>
+      ) : (
+        <FeaturedMovie
+          styles={styles}
+          movies={
+            selectedCategory.movies?.length > 0
+              ? selectedCategory.movies?.[0]
+              : topRated?.[0]
           }
-        }
-      />
-      <Categories styles={styles} categories={Genres.genres} />
+        />
+      )}
+
+      <Categories styles={styles} categories={genres} />
+      {selectedCategory.movies?.length > 0 && searchParams.series !== "true" ? (
+        <MoviesSection
+          title={selectedCategory.title}
+          styles={styles}
+          movies={selectedCategory.movies}
+        />
+      ) : (
+        <MoviesSection title={"TV Series"} styles={styles} movies={tvSeries} />
+      )}
+      <MoviesSection styles={styles} title="Top Rated" movies={topRated} />
       <MoviesSection
         styles={styles}
-        title="Popular Films"
-        movies={Movies.results.slice(0, 6)}
-      />
-      <MoviesSection
-        styles={styles}
-        title="Your Favorites"
-        movies={Movies.results.slice(6, 13)}
+        title="Popular Movies"
+        movies={popularMovies}
       />
     </section>
   );
