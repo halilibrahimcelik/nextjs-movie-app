@@ -8,12 +8,7 @@ type Props = {
   searchParams: { [key: string]: any };
 };
 
-async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 const InnerPage = async ({ params, searchParams }: Props) => {
-  await delay(1000);
   if (searchParams.error === "true") {
     throw new Error("Error occured");
   }
