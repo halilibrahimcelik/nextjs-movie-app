@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./header.module.scss";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import Link from "next/link";
+import SearchForm from "../searchForm";
 type Props = {};
 
 function Header({}: Props) {
@@ -17,6 +18,9 @@ function Header({}: Props) {
         </Link>
 
         <ul className="flex justify-center items-center gap-2">
+          <li>
+            <SearchForm />
+          </li>
           <li>
             <Link href="/?series=true">Series</Link>
           </li>
