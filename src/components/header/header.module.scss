@@ -3,8 +3,9 @@
   font-family: var(--rubik);
   background: linear-gradient(
     180deg,
-    rgba(11, 9, 9, 0.8),
-    rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 1) 20%,
+
+    rgba(255, 255, 255, 0) 100%
   ) !important;
   color: $color_white;
   nav {
@@ -24,6 +25,17 @@
     }
     @include desktop_large {
       font-size: $font_header;
+    }
+  }
+  ul {
+    li {
+      a {
+        font-size: 1.2rem;
+
+        @include laptop {
+          font-size: 1.4rem;
+        }
+      }
     }
   }
 }
