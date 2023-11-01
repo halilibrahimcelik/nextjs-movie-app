@@ -5,6 +5,7 @@ import {
   getSingleCategory,
   getTopRatedMovies,
   getTVSeries,
+  getUpcomingMovies,
 } from "@/services/movieServices";
 
 type Props = {
@@ -18,12 +19,13 @@ export default async function Home({ params, searchParams }: Props) {
     title: "",
     movies: [],
   };
-  const [topRatedMovies, popularMovies, categories, tvSeries] =
+  const [topRatedMovies, popularMovies, categories, tvSeries, upcoming] =
     await Promise.all([
       getTopRatedMovies(),
       getPopularMovies(),
       getCategories(),
       getTVSeries(),
+      getUpcomingMovies(),
     ]);
 
   if (params.category?.length > 0) {
@@ -42,6 +44,7 @@ export default async function Home({ params, searchParams }: Props) {
       topRated={topRatedMovies}
       popularMovies={popularMovies}
       selectedCategory={selectedCategory}
+      upComing={upcoming}
       tvSeries={tvSeries}
       searchParams={searchParams}
     />

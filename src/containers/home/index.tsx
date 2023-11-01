@@ -7,6 +7,7 @@ type Props = {
   topRated: [];
   popularMovies: [];
   genres: [];
+  upComing: [];
   selectedCategory: { movies: []; title: string };
   tvSeries: [];
   searchParams: { [key: string]: string | string[] | undefined };
@@ -19,6 +20,7 @@ const HomeContainer = ({
   selectedCategory,
   tvSeries,
   searchParams,
+  upComing,
 }: Props) => {
   if (
     topRated.length === 0 ||
@@ -35,7 +37,17 @@ const HomeContainer = ({
           <FeaturedMovie
             styles={styles}
             movies={
-              tvSeries?.length > 0 ? (tvSeries as any)[0] : (topRated as any)[0]
+              tvSeries?.length > 0 ? (tvSeries as any)[0] : (topRated as any)[9]
+            }
+          />
+        </>
+      ) : searchParams.upcoming === "true" ? (
+        <>
+          {" "}
+          <FeaturedMovie
+            styles={styles}
+            movies={
+              upComing?.length > 0 ? (upComing as any)[0] : (topRated as any)[9]
             }
           />
         </>
@@ -45,7 +57,7 @@ const HomeContainer = ({
           movies={
             selectedCategory.movies?.length > 0
               ? (selectedCategory.movies as any)?.[0]
-              : (topRated as any)[0]
+              : (topRated as any)[9]
           }
         />
       )}
@@ -56,6 +68,12 @@ const HomeContainer = ({
           title={selectedCategory.title}
           styles={styles}
           movies={selectedCategory.movies}
+        />
+      ) : searchParams.upcoming === "true" ? (
+        <MoviesSection
+          title={"Upcoming Movies"}
+          styles={styles}
+          movies={upComing}
         />
       ) : (
         <MoviesSection title={"TV Series"} styles={styles} movies={tvSeries} />

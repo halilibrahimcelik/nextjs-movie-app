@@ -1,4 +1,11 @@
 const API_URL = `https://api.themoviedb.org/3`;
+export const getUpcomingMovies = async () => {
+  const res = await fetch(
+    `${API_URL}/movie/upcoming?api_key=${process.env.API_KEY}`
+  );
+  const { results } = await res.json();
+  return results;
+};
 export const getTVSeries = async () => {
   const res = await fetch(
     `${API_URL}/trending/tv/day?api_key=${process.env.API_KEY}`
