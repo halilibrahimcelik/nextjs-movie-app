@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./header.module.scss";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import Link from "next/link";
+import SearchForm from "../searchForm";
 type Props = {};
 
 function Header({}: Props) {
@@ -18,13 +19,16 @@ function Header({}: Props) {
 
         <ul className="flex justify-center items-center gap-2">
           <li>
-            <Link href="/?series=true">Movies</Link>
+            <SearchForm />
           </li>
           <li>
-            <Link href="/series">Series</Link>
+            <Link href="/?series=true">Series</Link>
           </li>
           <li>
-            <Link href="/kids">Kids</Link>
+            <Link href="/?upcoming=true">Upcoming </Link>
+          </li>
+          <li>
+            <Link href="/10751">Kids</Link>
           </li>
         </ul>
       </nav>

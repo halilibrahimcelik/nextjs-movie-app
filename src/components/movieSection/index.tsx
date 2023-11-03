@@ -25,7 +25,6 @@ function MoviesSection({ title, movies, styles }: Props) {
 
         <ul className={styles.movieSection}>
           <Swiper
-            style={{ padding: "60px 0px !important" }}
             slidesPerView={1}
             modules={[Navigation, A11y, Pagination, Autoplay]}
             breakpoints={{
