@@ -30,8 +30,9 @@ const getMovie = async (
   movieType = "movie"
 ) => {
   const res = await fetch(
-    `${API_URL}/${movieType}/${movieId}?api_key=${process.env.API_KEY}`
+    `${API_URL}/${movieType}/${movieId}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
+
   if (res.status >= 400) throw new Error("Error fetching data");
 
   const data = await res.json();
@@ -40,6 +41,7 @@ const getMovie = async (
 
 const InnerMovieContainer = async ({ id, searchParams }: Props) => {
   const { mediaType } = searchParams;
+
   const movieDetail = await getMovie(id, mediaType);
 
   if (!movieDetail) {
