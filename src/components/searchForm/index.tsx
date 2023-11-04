@@ -56,7 +56,6 @@ const SearchForm = (props: Props) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const text = searchedText.current?.value;
-    console.log(process.env.API_KEY);
     if (text !== undefined && text !== null && text !== "") {
       const data = await searchMovie(text);
       console.log(data);
